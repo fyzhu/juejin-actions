@@ -1,4 +1,4 @@
-name: '掘金 github actions'
+name: '掘金签到'
 on: 
  push:
  workflow_dispatch:
