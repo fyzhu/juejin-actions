@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/lxchuan12/juejin-actions#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0",
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "axios": "^0.24.0",
-    "nodemailer": "^6.7.2"
+    "nodemailer": "^6.9.3"
   },
   "release-it": {
     "git": {
@@ -43,9 +43,8 @@
     }
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^4.1.0",
-    "esbuild": "^0.14.10",
-    "git-cz": "^4.8.0",
-    "release-it": "^14.12.1"
+    "@release-it/conventional-changelog": "^4.3.0",
+    "esbuild": "^0.14.54",
+    "release-it": "^14.14.3"
   }
 }
