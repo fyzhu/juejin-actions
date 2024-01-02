@@ -20469,7 +20469,12 @@ async function main() {
       return [err2, { err_msg: message }];
     }
   } else {
-    const message = ["\u7B7E\u5230\u51FA\u9519\uFF1A" + JSON.stringify(res)];
+    let message;
+    if (res.data === true) {
+      message = ["\u60A8\u4ECA\u65E5\u5DF2\u5B8C\u6210\u7B7E\u5230\uFF0C\u8BF7\u52FF\u91CD\u590D\u7B7E\u5230\uFF01"];
+    } else {
+      message = ["\u7B7E\u5230\u51FA\u9519\uFF1A" + JSON.stringify(res)];
+    }
     return [err, { err_msg: message }];
   }
 }

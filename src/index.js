@@ -42,7 +42,12 @@ export async function main () {
     }
 
   } else {
-    const message = ['签到出错：' + JSON.stringify(res)]
+    let message
+    if (res.data === true) {
+      message = ['您今日已完成签到，请勿重复签到！']
+    } else {
+      message = ['签到出错：' + JSON.stringify(res)]
+    }
     return [err, { err_msg: message }];
   }
 }
