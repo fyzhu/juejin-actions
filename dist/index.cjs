@@ -20456,11 +20456,15 @@ async function main() {
     const { check_in_done } = res.data;
     if (check_in_done) {
       const message = await getInfo();
-      message.unshift("\u7B7E\u5230\u5B8C\u6210\uFF01");
+      message.unshift("\u60A8\u4ECA\u65E5\u5DF2\u5B8C\u6210\u7B7E\u5230\uFF0C\u8BF7\u52FF\u91CD\u590D\u7B7E\u5230\uFF01");
       return [err, { err_msg: message }];
     } else {
-      const [err2] = await checkIn();
-      const message = await getInfo();
+      let message;
+      const [err2, { err_no, err_msg }] = await checkIn();
+      if (err_no !== 0) {
+        return [err2, { err_msg }];
+      }
+      message = await getInfo();
       return [err2, { err_msg: message }];
     }
   } else {
