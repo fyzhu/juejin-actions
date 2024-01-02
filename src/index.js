@@ -43,7 +43,7 @@ export async function main () {
     }
 
   } else {
-    const message = ['签到出错']
+    const message = ['签到出错：' + JSON.stringify(res)]
     return [err, { err_msg: message }];
   }
 }

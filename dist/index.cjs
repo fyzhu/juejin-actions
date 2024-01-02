@@ -20381,6 +20381,7 @@ var request = async function(options) {
   const [err, res] = await await_to_js_default((0, import_axios.default)(lastOptions));
   let result = [err, res];
   if (err || !isObject(res)) {
+    console.log("\u9047\u5230\u9519\u8BEF");
     return result;
   }
   const {
@@ -20469,7 +20470,7 @@ async function main() {
       return [err2, { err_msg: message }];
     }
   } else {
-    const message = ["\u7B7E\u5230\u51FA\u9519"];
+    const message = ["\u7B7E\u5230\u51FA\u9519\uFF1A" + JSON.stringify(res)];
     return [err, { err_msg: message }];
   }
 }
