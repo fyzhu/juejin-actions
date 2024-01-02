@@ -29,11 +29,14 @@ export async function main () {
     const { check_in_done } = res.data
     if (check_in_done) { // 已签到
       const message = await getInfo();
-      message.unshift('签到完成！');
+      message.unshift('您今日已完成签到，请勿重复签到！');
       return [err, { err_msg: message }];
     } else {// 未签到
-      const [err] = await checkIn(); // 签到
-      const message = await getInfo();
+      let message
+      const [err, res] = await checkIn(); // 签到
+      console.log('签到完成，res');
+      message = await getInfo();
+      message.unshift(JSON.stringify(res))
       return [err, { err_msg: message }];
     }
 

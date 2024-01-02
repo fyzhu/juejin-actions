@@ -20461,6 +20461,7 @@ async function main() {
     } else {
       let message;
       const [err2, res2] = await checkIn();
+      console.log("\u7B7E\u5230\u5B8C\u6210\uFF0Cres");
       message = await getInfo();
       message.unshift(JSON.stringify(res2));
       return [err2, { err_msg: message }];
