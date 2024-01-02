@@ -20464,7 +20464,8 @@ async function main() {
       if (err_no !== 0) {
         return [err2, { err_msg }];
       }
-      message = await getInfo();
+      message += err_msg;
+      message += await getInfo();
       return [err2, { err_msg: message }];
     }
   } else {
