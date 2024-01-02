@@ -26,9 +26,8 @@ export async function main () {
     return [err, res];
   }
 
-  if (res.err_no === 0 && res.data) {
-    const { check_in_done } = res.data
-    console.log('是否已签到', false);
+  if (res.err_no === 0 && !res.data) {
+    const check_in_done = false
     if (check_in_done) { // 已签到
       const message = await getInfo();
       message.unshift('您今日已完成签到，请勿重复签到！');
@@ -36,7 +35,7 @@ export async function main () {
     } else {// 未签到
       let message
       const [err, res] = await checkIn(); // 签到
-      console.log('签到完成，res');
+      console.log('签到完成');
       message = await getInfo();
       message.unshift(JSON.stringify(res))
       return [err, { err_msg: message }];
