@@ -20469,7 +20469,7 @@ async function main() {
       return [err2, { err_msg: message }];
     }
   } else {
-    const message = "\u7B7E\u5230\u51FA\u9519";
+    const message = ["\u7B7E\u5230\u51FA\u9519"];
     return [err, { err_msg: message }];
   }
 }
