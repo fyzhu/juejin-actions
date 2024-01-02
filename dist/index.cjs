@@ -20450,10 +20450,12 @@ async function getInfo() {
 async function main() {
   const [err, res] = await getStatus();
   if (err) {
+    console.log("\u83B7\u53D6\u72B6\u6001\u51FA\u9519", res);
     return [err, res];
   }
   if (res.err_no === 0 && res.data) {
     const { check_in_done } = res.data;
+    console.log("\u662F\u5426\u5DF2\u7B7E\u5230", false);
     if (check_in_done) {
       const message = await getInfo();
       message.unshift("\u60A8\u4ECA\u65E5\u5DF2\u5B8C\u6210\u7B7E\u5230\uFF0C\u8BF7\u52FF\u91CD\u590D\u7B7E\u5230\uFF01");

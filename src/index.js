@@ -22,11 +22,13 @@ async function getInfo () {
 export async function main () {
   const [err, res] = await getStatus();
   if (err) {
+    console.log('获取状态出错', res);
     return [err, res];
   }
 
   if (res.err_no === 0 && res.data) {
     const { check_in_done } = res.data
+    console.log('是否已签到', false);
     if (check_in_done) { // 已签到
       const message = await getInfo();
       message.unshift('您今日已完成签到，请勿重复签到！');
