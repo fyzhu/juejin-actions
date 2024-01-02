@@ -20460,12 +20460,9 @@ async function main() {
       return [err, { err_msg: message }];
     } else {
       let message;
-      const [err2, { err_no, err_msg }] = await checkIn();
-      if (err_no !== 0) {
-        return [err2, { err_msg }];
-      }
+      const [err2, res2] = await checkIn();
       message = await getInfo();
-      message.unshift(err_msg);
+      message.unshift(JSON.stringify(res2));
       return [err2, { err_msg: message }];
     }
   } else {
