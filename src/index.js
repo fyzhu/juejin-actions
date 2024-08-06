@@ -13,6 +13,8 @@ async function getInfo () {
     message.push(`累计签到天数: ${res2.data.sum_count}\n`);
   }
   if (!err3) {
+    console.log(res3.data);
+    
     message.push(`免费抽奖完成，恭喜获得: ${res3.data.lottery_name}`);
   }
 
