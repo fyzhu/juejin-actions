@@ -37,7 +37,13 @@ export async function main () {
       const [err, res] = await checkIn(); // 签到
       console.log('签到完成');
       message = await getInfo();
-      message.unshift(JSON.stringify(res))
+      try {
+        message.unshift(JSON.stringify(res))
+      } catch (error) {
+        console.log('error res', res);
+        message.unshift(res)
+      }
+      
       return [err, { err_msg: message }];
     }
 
