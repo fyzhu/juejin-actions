@@ -20444,6 +20444,7 @@ async function getInfo() {
 `);
   }
   if (!err3) {
+    console.log(res3.data);
     message.push(`\u514D\u8D39\u62BD\u5956\u5B8C\u6210\uFF0C\u606D\u559C\u83B7\u5F97: ${res3.data.lottery_name}`);
   }
   return message;
