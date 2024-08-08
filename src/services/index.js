@@ -32,6 +32,13 @@ export const checkIn = async function(){
     return await request({
         url: `${prefix}check_in`,
         method: 'post',
+        data: {
+            aid:2608,
+            uuid:7244182731365762617,
+            spider:0,
+            msToken:'ZfB76UE8OVvtR5pVFjq-HKfGn87zO3mG1ae75JXahP9eP3j3Z91UseGxC6EA6quL1JgXkU3srTOVODDodxgXw3x5bFHQDKFZUKI95QV7m5R0gQBgdxBTGyxahPuexiw%3D'
+            ,a_bogus:'df4dhO2OMsm1wXVfOwDz9y8Ex3u0YW4bgZENCs8KDzLS'
+        }
     });
 }
 
