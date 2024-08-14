@@ -37,12 +37,11 @@ export async function main () {
     } else {// 未签到
       let message
       const [err, res] = await checkIn(); // 签到
-      console.log('签到完成');
       message = await getInfo();
       try {
         message.unshift(JSON.stringify(res))
       } catch (error) {
-        console.log('error res', res);
+        console.log('签到失败');
         message.unshift(res)
       }
       
@@ -52,7 +51,8 @@ export async function main () {
   } else {
     let message
     if (res.data === true) {
-      message = ['您今日已完成签到，请勿重复签到！']
+      message = await getInfo();
+      message.unshift('您今日已完成签到，请勿重复签到！');
     } else {
       message = ['签到出错：' + JSON.stringify(res)]
     }
