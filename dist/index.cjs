@@ -20356,6 +20356,7 @@ var headers = {
   "accept": "*/*",
   "accept-language": "zh-CN,zh;q=0.9",
   "content-type": "application/json",
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0",
   "sec-ch-ua": '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
   "sec-ch-ua-mobile": "?0",
   "sec-ch-ua-platform": '"Windows"',
@@ -20408,15 +20409,9 @@ var getStatus = async function() {
 };
 var checkIn = async function() {
   return await request({
-    url: `${prefix}check_in`,
+    url: `${prefix}check_in?aid=2608&uuid=7244182731365762617&spider=0&msToken=ZfB76UE8OVvtR5pVFjq-HKfGn87zO3mG1ae75JXahP9eP3j3Z91UseGxC6EA6quL1JgXkU3srTOVODDodxgXw3x5bFHQDKFZUKI95QV7m5R0gQBgdxBTGyxahPuexiw%3D&a_bogus=df4dhO2OMsm1wXVfOwDz9y8Ex3u0YW4bgZENCs8KDzLS`,
     method: "post",
-    data: {
-      aid: 2608,
-      uuid: 7244182731365763e3,
-      spider: 0,
-      msToken: "ZfB76UE8OVvtR5pVFjq-HKfGn87zO3mG1ae75JXahP9eP3j3Z91UseGxC6EA6quL1JgXkU3srTOVODDodxgXw3x5bFHQDKFZUKI95QV7m5R0gQBgdxBTGyxahPuexiw%3D",
-      a_bogus: "df4dhO2OMsm1wXVfOwDz9y8Ex3u0YW4bgZENCs8KDzLS"
-    }
+    data: {}
   });
 };
 var getCounts = async function() {
@@ -20431,8 +20426,9 @@ var getCurPoint = async function() {
 };
 var freeDraw = async function() {
   return await request({
-    url: `${prefix}lottery/draw`,
-    method: "post"
+    url: `${prefix}lottery/draw?aid=2608&uuid=7244182731365762617&spider=0&msToken=gcX9HGQmxv6x6PTquHaMrTkaBIyM4rAHc9k1vyq7p2_2XHlrGvD_hEY_LJQzopb7NLXy3-1hWOKYlHOGuL1ObFxTVjbDxp2kl3qnhRSy0V6TMpxCuzE7oMAAfgUUlLs%3D&a_bogus=E6UmvOZVMsm1MhVfRXDz9emExIg0YW59gZENEhiyJzLK`,
+    method: "post",
+    data: {}
   });
 };
 
@@ -20471,12 +20467,11 @@ async function main() {
     } else {
       let message;
       const [err2, res2] = await checkIn();
-      console.log("\u7B7E\u5230\u5B8C\u6210");
       message = await getInfo();
       try {
         message.unshift(JSON.stringify(res2));
       } catch (error) {
-        console.log("error res", res2);
+        console.log("\u7B7E\u5230\u5931\u8D25");
         message.unshift(res2);
       }
       return [err2, { err_msg: message }];
@@ -20484,7 +20479,8 @@ async function main() {
   } else {
     let message;
     if (res.data === true) {
-      message = ["\u60A8\u4ECA\u65E5\u5DF2\u5B8C\u6210\u7B7E\u5230\uFF0C\u8BF7\u52FF\u91CD\u590D\u7B7E\u5230\uFF01"];
+      message = await getInfo();
+      message.unshift("\u60A8\u4ECA\u65E5\u5DF2\u5B8C\u6210\u7B7E\u5230\uFF0C\u8BF7\u52FF\u91CD\u590D\u7B7E\u5230\uFF01");
     } else {
       message = ["\u7B7E\u5230\u51FA\u9519\uFF1A" + JSON.stringify(res)];
     }
