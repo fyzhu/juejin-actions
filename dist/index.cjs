@@ -20382,7 +20382,7 @@ var request = async function(options) {
   const [err, res] = await await_to_js_default((0, import_axios.default)(lastOptions));
   let result = [err, res];
   if (err || !isObject(res)) {
-    console.log("\u9047\u5230\u9519\u8BEF");
+    console.log("\u9047\u5230\u9519\u8BEF", err);
     return result;
   }
   const {

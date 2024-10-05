@@ -13,7 +13,7 @@ export const request = async function (options) {
   // { err_no: 403, err_msg: 'must login', data: null }
   let result = [err, res];
   if (err || !isObject(res)) {
-    console.log('遇到错误');
+    console.log('遇到错误', err);
     return result;
   }
   const {
